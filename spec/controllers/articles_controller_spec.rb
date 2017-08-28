@@ -52,7 +52,7 @@ RSpec.describe ArticlesController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  describe "POST #new" do
     it "assigns a new article as @article" do
       get :new, params: {}, session: valid_session
       expect(assigns(:article)).to be_a_new(Article)
