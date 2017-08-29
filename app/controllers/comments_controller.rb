@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
 
   # POST /comments
   def create
+    @article = Article.find(params[:article_id])
     @comment = Comment.new(comment_params)
 
     if @comment.save
@@ -36,6 +37,9 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   def destroy
     @comment.destroy
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.create(comment_params)
+    redirect_to article_path(@article)
   end
 
   private

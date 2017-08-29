@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  resources :comments
   get 'welcome/index'
 
   resources :examples, except: [:new, :edit]
@@ -10,5 +9,7 @@ Rails.application.routes.draw do
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: [:index, :show]
   resources :articles, only: [:index, :show, :create, :update, :destroy]
-  resources :article, only: [:create, :show, :create, :update, :destroy]
+  resources :article, only: [:create, :show, :create, :update, :destroy] do
+    resources :comments, only: [:create, :update, :destroy]
+  end
 end

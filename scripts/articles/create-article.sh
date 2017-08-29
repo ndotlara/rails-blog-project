@@ -1,6 +1,7 @@
 #!/bin/bash
 
 API="${API_ORIGIN:-http://localhost:4741}"
+# API="${API_ORIGIN:-https://rails-blog-project.herokuapp.com/}"
 URL_PATH="/articles"
 curl "${API}${URL_PATH}" \
   --include \
@@ -9,9 +10,8 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "article":{
-    "title": { "'"${TEXT}"'"
-      "body": "'"${TEXT}"'"
-      }
+      "title": "'"${TITLE}"'",
+      "body": "'"${BODY}"'"
     }
   }'
 
