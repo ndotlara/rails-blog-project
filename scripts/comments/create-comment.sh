@@ -2,7 +2,7 @@
 
 API="${API_ORIGIN:-http://localhost:4741}"
 # API="${API_ORIGIN:-https://rails-blog-project.herokuapp.com/}"
-URL_PATH="/comments"
+URL_PATH="article/${ID}/comments/  "
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
