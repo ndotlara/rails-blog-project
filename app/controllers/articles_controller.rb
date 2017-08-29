@@ -4,8 +4,9 @@ class ArticlesController < ApplicationController
   # GET /articles
   def index
     @articles = Article.all
-
+    render text: "successful"
     render json: @articles
+
   end
 
   # GET /articles/1
