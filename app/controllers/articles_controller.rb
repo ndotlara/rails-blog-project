@@ -37,9 +37,10 @@ class ArticlesController < OpenReadController
       render json: @article.errors, status: :unprocessable_entity
     end
   end
-  # DELETE /articles/1
+  # delete /articles/1
   def destroy
     @article.destroy
+    head :no_content
   end
 
   # Use callbacks to share common setup or constraints between actions.
