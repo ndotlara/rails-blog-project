@@ -10,11 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :articles, only: [:index, :show]
-
-  resources :article, only: [:create, :show, :create, :update, :destroy] do
-    resources :comment, only: [:show, :create, :index, :update, :destroy]
-  end
-    resources :comments, only: [:show, :index]
+  resources :articles, only: [:index, :show, :create, :show, :create, :update, :destroy] do
+    resources :comments, only: [:show, :create, :index, :update, :destroy]
   end
 end

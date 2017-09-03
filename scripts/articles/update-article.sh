@@ -11,7 +11,7 @@ curl "${API}${URL_PATH}" \
   --data '{
     "article":{
       "title": "'"${TITLE}"'",
-      "body": "'"${BODY}"'"
+      "article_text": "'"${ARTICLE_TEXT}"'"
     }
   }'
 

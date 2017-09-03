@@ -2,6 +2,7 @@
 
 API="${API_ORIGIN:-http://localhost:4741}"
 # API="${API_ORIGIN:-https://rails-blog-project.herokuapp.com/}"URL_PATH="/sign-up"
+URL_PATH="/sign-up"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
@@ -9,6 +10,7 @@ curl "${API}${URL_PATH}" \
   --data '{
     "credentials": {
       "email": "'"${EMAIL}"'",
+      "username": "'"${USERNAME}"'",
       "password": "'"${PASSWORD}"'",
       "password_confirmation": "'"${PASSWORD}"'"
     }

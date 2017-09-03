@@ -50,6 +50,6 @@ class ArticlesController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :aricle_text)
   end
 end
