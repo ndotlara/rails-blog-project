@@ -18,6 +18,8 @@ class CommentsController < OpenReadController
     @article = Article.find(params[:article_id])
     @comment = Comment.new(comment_params)
 
+    # current_user.comments.create(comment_params)
+
     if @comment.save
       render json: @comment, status: :created, location: @comment
     else
@@ -34,11 +36,14 @@ class CommentsController < OpenReadController
     end
   end
 
+# TODO remove nested routes/controller actions where Article is
+# TODO change this action to Create
   # DELETE /comments/1
   def destroy
     @comment.destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
+# TODO render JSON
     redirect_to article_path(@article)
   end
 
@@ -50,6 +55,6 @@ class CommentsController < OpenReadController
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.require(:comment).permit(:body, :user_id, :article_id)
+      params.require(:comment).permit(:comment_body, :user_id, :article_id)
     end
 end

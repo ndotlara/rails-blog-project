@@ -10,7 +10,7 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "article":{
-      "username": "'"${USERNAME}"'"
+      "user_id": "'"${USER_ID}"'",
       "title": "'"${TITLE}"'",
       "article_text": "'"${ARTICLE_TEXT}"'"
     }
